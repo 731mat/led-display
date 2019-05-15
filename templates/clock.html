@@ -1,0 +1,30 @@
+{% extends "vzhled/layout.tmpl" %}
+{% block title %}Clock{% endblock %}
+{% block nadpis %}Chytrý dům{% endblock %}
+{% block popis %}projekt{% endblock %}
+
+
+
+{% block telo %}
+
+<form action="clock" method="POST" name="myForm">
+	<input type="color" name="barva" id="barva">
+  <input value="Submit" type="submit" onclick="submitform()">
+</form>	
+
+
+<script type="text/javascript">
+ function submitform(){
+	var formData = JSON.stringify($("#myForm").serializeArray());
+$.ajax({
+  type: "POST",
+  url: "clock",
+  data: formData,
+  success: function(){console.log('as');},
+  dataType: "json",
+  contentType : "application/json"
+});
+
+}
+</script>
+{% endblock %}

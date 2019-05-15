@@ -1,0 +1,20 @@
+{% extends "vzhled/layout.tmpl" %}
+{% block nadpis %}Text{% endblock %}
+{% block popis %}Statický text{% endblock %}
+
+
+{% block telo %}
+
+<div id="myForm" class="col-sm-4 col-sm-offset-4" data-url="text">
+    <div class="form-group">
+        <label for="message">Text:</label>
+        <input type="text" class="form-control" name="message" id="message"></p>
+    </div>    
+    <div class="form-group">   
+        <label for="barva">Barva:</label> 
+	    <input type="color" class="form-control" name="barva" id="barva">
+    </div>    
+        <input value="Submit" class="btn btn-primary" type="submit" id="odeslat">
+</id>	
+
+{% endblock %}

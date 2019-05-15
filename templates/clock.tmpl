@@ -1,0 +1,16 @@
+{% extends "vzhled/layout.tmpl" %}
+{% block nadpis %}Hodiny{% endblock %}
+{% block popis %}Uprostřed hodiny{% endblock %}
+
+
+
+{% block telo %}
+
+<div id="myForm" class="col-sm-4 col-sm-offset-4" data-url="clock">  
+    <div class="form-group">   
+        <label for="barva">Barva:</label> 
+      <input type="color" class="form-control" name="barva" id="barva">
+    </div>    
+        <input value="Zobrazit" class="btn btn-primary" type="submit" id="odeslat">
+</id> 
+{% endblock %}

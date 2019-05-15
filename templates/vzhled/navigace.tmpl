@@ -1,0 +1,20 @@
+{% set navigation_bar = [['index', 'Hlavní stránka'], ['painting', 'Kreslení'], ['runningtext', 'pohyblivý text'],['clock', 'hodiny'],['clockcountdown', 'Odpočet'],['reset', 'Resetovat display']] %}
+{% set active_page = request.url_rule.endpoint %}
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">LED PANEL zmerimto.cz</a>
+    </div>
+    <div>
+    {% block navigation %}
+      <ul class="nav navbar-nav">
+        {% for item in navigation_bar %}
+            <li{% if item[0] == active_page %} class="active"{% endif%}>
+            <a href="/{{item[0]}}">{{item[1]}}</a></li>
+        {% endfor %}
+      </ul>
+    {% endblock %}
+    </div>
+  </div>
+</nav>

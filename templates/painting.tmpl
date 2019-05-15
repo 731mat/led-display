@@ -1,0 +1,48 @@
+{% extends "vzhled/layout.tmpl" %}
+{% block nadpis %}kresleni{% endblock %}
+{% block popis %}projekt{% endblock %}
+
+
+
+
+
+{% block telo %}
+
+<div id="drawing-canvas" class="drawing-canvas" style="height: 300px; margin: 0 auto;"></div>
+<script  type="text/javascript">
+/// Create new instance
+var paintInstance = new LumenCanvas ({
+    selector : "#drawing-canvas",
+			showGridButton: false,
+			enableGridByDefault: false,
+			watermarkImage: "img/watermark.png",
+			watermarkImageOpacity: 0.8,
+			defaultActiveTool: "Line"
+});
+/// Export SVG
+$("#export-svg").on("click",function(){
+    $("#svg-output").val(paintInstance.GetSVG());
+})
+/// Export JSON
+$("#export-json").on("click",function(){
+    $("#json-output").val(JSON.stringify(paintInstance.GetJSON()));
+})
+
+</script>
+
+
+<script type="text/javascript">
+ function submitform(){
+	var formData = JSON.stringify($("#myForm").serializeArray());
+$.ajax({
+  type: "POST",
+  url: "text",
+  data: formData,
+  success: function(){console.log('as');},
+  dataType: "json",
+  contentType : "application/json"
+});
+
+}
+</script>
+{% endblock %}

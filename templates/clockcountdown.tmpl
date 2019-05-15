@@ -1,0 +1,26 @@
+{% extends "vzhled/layout.tmpl" %}
+{% block nadpis %}Clock time down{% endblock %}
+{% block popis %}odpočet času{% endblock %}
+
+
+
+
+
+{% block telo %}
+
+<div id="myForm" class="col-sm-4 col-sm-offset-4" data-url="clockcountdown">
+    <div class="form-group">
+        <label for="message">minut odpocet:</label>
+        <input type="number" class="form-control" name="cas" id="cas" value="2">
+    </div>    
+    <div class="form-group">
+        <label for="message">Hláška pro uplynutí:</label>
+        <input type="text" class="form-control" name="hlaska" id="hlaska" value="Hotovo!">
+    </div> 
+    <div class="form-group">   
+        <label for="barva">Barva:</label> 
+      <input type="color" class="form-control" name="barva" id="barva">
+    </div>    
+        <input value="Submit" class="btn btn-primary" type="submit" id="odeslat">
+</id> 
+{% endblock %}

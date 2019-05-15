@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+
+  <title>Display || zmerimTo.cz</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+      <!-- dependency : JQuery -->
+        <script src="{{ url_for('static', filename='js/jquery/jquery-1.12.4.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery/jquery-ui.js') }}"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <!-- dependency : FabricJS & Spectrum plugin -->
+        <script src="{{ url_for('static', filename='js/fabricjs/fabric.min.js') }}"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/spectrum.css') }}">
+        <script src="{{ url_for('static', filename='js/spectrum.js') }}"></script>
+        <!-- LumenCanvas -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/lumen-canvas.css') }}">
+        <script src="{{ url_for('static', filename='js/lumen-canvas.js') }}"></script>
+
+
+
+</head>
+<body>
+  {% include 'vzhled/navigace.tmpl' %}
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>{% block nadpis %}{% endblock %}</h1>
+    <p>{% block popis %}{% endblock %}</p>
+  </div>
+
+  <div class="row">
+    {% block telo %}{% endblock %}
+  </div>
+</div>
+
+<script type="text/javascript">
+
+$( document ).ready(function() {
+  $("input[type=color]").val("#ff0000");
+});
+$( "#odeslat" ).click(function() {
+    var forms = $(this).parent();
+
+    var unindexed_array = $(forms).find("input").serializeArray();
+    var indexed_array = {};
+
+    $.map(unindexed_array, function(n, i){
+        indexed_array[n['name']] = n['value'];
+    });
+
+    $.ajax({
+        type: "POST",
+        url: forms.data( "url"),
+        data: JSON.stringify(indexed_array),
+        success: function(){console.log('as');},
+        contentType : "application/json"
+    });
+
+});
+
+
+</script>
+</body>
+</html>
+
