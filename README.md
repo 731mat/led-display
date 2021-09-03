@@ -4,6 +4,16 @@ A library and web app for having fun with an [Adafruit RGB LED Matrix](https://w
 
 Depends on [rpi-rgb-led-matrix](https://github.com/hzeller/rpi-rgb-led-matrix)
 
+![alt text](https://github.com/731mat/led-display/blob/master/photos/i1.jpeg)
+
+
+
+
+
+
+
+
+
 ## Running
 
 ```sh
